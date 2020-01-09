@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // Buscar todos los productos y enviarlos de forma paginada
+        $products = Product::paginate();
+        return view('home', compact(('products')));
     }
 }
