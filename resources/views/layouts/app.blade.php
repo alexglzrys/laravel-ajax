@@ -76,5 +76,8 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Declarar el espacio para el stack de archivos js cargados dinámicamente y bajo demanda -->
+    @stack('scripts')
 </body>
 </html>

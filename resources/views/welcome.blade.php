@@ -81,12 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel y Ajax con Axios
+                    Laravel con Ajax y jQuery
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                </div>
+                <p>Administrador de Catálogo de Productos Genéricos</p>
             </div>
         </div>
     </body>

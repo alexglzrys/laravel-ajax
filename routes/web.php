@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Ruta para eliminar un producto
+Route::delete('/eliminar-producto/{id}', 'HomeController@destroyProduct')->name('destroyProduct');

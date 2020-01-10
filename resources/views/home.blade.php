@@ -16,9 +16,14 @@
                     
                     {{-- dd($products) --}}
 
-                    <p>{{ $products->total() }} Productos registrados | Página {{ $products->currentPage() }} de {{ $products->lastPage() }}</p>
+                    <p>
+                        <span id="total">{{ $products->total() }}</span> Productos registrados | Página {{ $products->currentPage() }} de {{ $products->lastPage() }}
+                    </p>
 
-                    <table class="table table-striped table-bordered table-hover">
+                    <!-- Mensajes  -->
+                    <div class="alert alert-info" id="alert"></div>
+
+                    <table class="table table-striped table-hover">
                         <thead class="thead-dark">
                             <tr>
                                 <th>ID</th>
@@ -31,7 +36,11 @@
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td>&nbsp;</td>
+                                    <td>
+                                        {!! Form::open(['route' => ['destroyProduct', $product->id], 'method' => 'delete']) !!}
+                                            {!! Form::submit('Eliminar', ['class' => 'btn btn-link btn-eliminar']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -45,3 +54,8 @@
     </div>
 </div>
 @endsection
+
+<!-- Empujar al stack de scripts los archivos JS necesarios para que trabaje correctamentne esta plantilla -->
+@push('scripts')
+    <script src="{{ asset('js/generic.js') }}" defer></script>
+@endpush

@@ -28,4 +28,19 @@ class HomeController extends Controller
         $products = Product::paginate();
         return view('home', compact(('products')));
     }
+
+    public function destroyProduct(Request $request, $id)
+    {
+        if($request->ajax()) {
+            $product = Product::find($id);
+            $product->delete();
+
+            $products_total = Product::all()->count();
+            
+            return response()->json([
+                'total' => $products_total,
+                'message' => "Producto {$product->name} fué eliminado satisfactoriamente del sistema"
+            ]);
+        }
+    }
 }
