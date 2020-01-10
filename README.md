@@ -58,3 +58,7 @@ Ejecutar la aplicación. **Por ejemplo, mediante el servidor HTTP integrado en L
 ~~~
 php artisan serve
 ~~~
+
+#### Instrucciones
+
+Al iniciar la aplicación, es necesario registrar un usuario y hacer uso de dichas credenciales (sección de login) para administrar la información almacenada en el sistema.
